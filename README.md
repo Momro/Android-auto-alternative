@@ -32,11 +32,13 @@ gradle wrapper --gradle-version 8.7   # einmalig: erzeugt gradlew + gradle-wrapp
 # APK: app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Gitea Actions
+## CI: APK bauen
 
-Sobald das Repo in Gitea liegt und ein Runner mit Label `ubuntu-latest` registriert ist,
-baut `.gitea/workflows/build-apk.yaml` bei jedem Push auf `main`/`master` die APK.
-Download: Repo -> Reiter **Actions** -> letzter Run -> **Artifacts** -> `Dashboard-Car-App-Debug`.
+- **GitHub Actions**: `.github/workflows/build-apk.yaml` baut bei jedem Push auf
+  `main`/`master` (und manuell via *Run workflow*) die APK.
+  Download: Repo -> Reiter **Actions** -> Run -> **Artifacts** -> `Dashboard-Car-App-Debug`.
+- **Gitea Actions**: `.gitea/workflows/build-apk.yaml` macht dasselbe, sobald das Repo in
+  Gitea gespiegelt ist und ein Runner mit Label `ubuntu-latest` registriert ist.
 
 ## Ersteinrichtung am Android-Gerät
 
