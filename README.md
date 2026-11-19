@@ -39,6 +39,8 @@ Hinweis: Ist `gradlew` nicht committet, erzeugen die CI-Workflows den Wrapper vo
 - **GitHub Actions**: `.github/workflows/build-apk.yaml` baut bei jedem Push auf
   `main`/`master` (und manuell via *Run workflow*) die APK.
   Download: Repo -> Reiter **Actions** -> Run -> **Artifacts** -> `Dashboard-Car-App-Debug`.
+  **Release:** `git tag v1.2.3 && git push origin v1.2.3` baut die APK und veröffentlicht
+  automatisch ein GitHub-Release mit der APK als Asset (Reiter **Releases**).
 - **Gitea Actions**: `.gitea/workflows/build-apk.yaml` macht dasselbe, sobald das Repo in
   Gitea gespiegelt ist und ein Runner mit Label `ubuntu-latest` registriert ist.
 
