@@ -6,10 +6,12 @@ import android.provider.Settings
 
 object ResizableHelper {
 
+    private const val FORCE_RESIZABLE_ACTIVITIES = "force_resizable_activities"
+
     fun isForceResizableEnabled(context: Context): Boolean =
         Settings.Global.getInt(
             context.contentResolver,
-            Settings.Global.FORCE_RESIZABLE_ACTIVITIES,
+            FORCE_RESIZABLE_ACTIVITIES,
             0
         ) == 1
 

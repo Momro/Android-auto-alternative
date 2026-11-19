@@ -100,7 +100,7 @@ fun DashboardScreen(viewModel: DashboardViewModel) {
                             modifier = Modifier.padding(end = 8.dp)
                         )
                         Text(
-                            "Split-Screen: „Aktivitäten als größenveränderbar anpassen" in den Entwickleroptionen aktivieren (betrifft die Navi-App, danach Neustart).",
+                            "Split-Screen: 'Aktivitäten als größenveränderbar anpassen' in den Entwickleroptionen aktivieren (betrifft die Navi-App, danach Neustart).",
                             color = Color(0xFFFFAB40),
                             style = MaterialTheme.typography.bodyMedium,
                             maxLines = 2,
