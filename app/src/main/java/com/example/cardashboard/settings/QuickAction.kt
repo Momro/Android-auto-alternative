@@ -15,7 +15,7 @@ data class QuickAction(
 fun defaultQuickActions() = listOf(
     QuickAction("garage", "Garage", "Garage", "cover", "toggle", "cover.garage_door"),
     QuickAction("preheat", "Vorheizen", "ElectricCar", "switch", "toggle", "switch.preheating"),
-    QuickAction("scene_drive", "Szene Fahren", "Scene", "scene", "turn_on", "scene.drive"),
+    QuickAction("scene_drive", "Szene Fahren", "DriveEta", "scene", "turn_on", "scene.drive"),
     QuickAction("light", "Licht", "Lightbulb", "light", "toggle", "light.garage")
 )
 

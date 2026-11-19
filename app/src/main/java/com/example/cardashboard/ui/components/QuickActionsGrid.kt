@@ -16,7 +16,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ElectricCar
 import androidx.compose.material.icons.filled.Garage
 import androidx.compose.material.icons.filled.Lightbulb
-import androidx.compose.material.icons.filled.Scene
+import androidx.compose.material.icons.filled.DriveEta
 import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -37,7 +37,7 @@ import com.example.cardashboard.settings.QuickAction
 fun iconFor(name: String): ImageVector = when (name) {
     "Garage" -> Icons.Default.Garage
     "ElectricCar" -> Icons.Default.ElectricCar
-    "Scene" -> Icons.Default.Scene
+    "DriveEta" -> Icons.Default.DriveEta
     "Lightbulb" -> Icons.Default.Lightbulb
     else -> Icons.Default.ToggleOn
 }
