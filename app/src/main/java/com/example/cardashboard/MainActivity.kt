@@ -43,5 +43,6 @@ class MainActivity : ComponentActivity() {
         super.onResume()
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         viewModel.refreshNotificationAccess()
+        viewModel.refreshForceResizable()
     }
 }

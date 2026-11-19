@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AspectRatio
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Icon
@@ -43,6 +44,7 @@ fun DashboardScreen(viewModel: DashboardViewModel) {
     val actions by viewModel.quickActions.collectAsState()
     val status by viewModel.statusMessage.collectAsState()
     val notifGranted by viewModel.notificationAccessGranted.collectAsState()
+    val forceResizable by viewModel.forceResizable.collectAsState()
 
     var showSettings by remember { mutableStateOf(false) }
 
@@ -86,6 +88,31 @@ fun DashboardScreen(viewModel: DashboardViewModel) {
                     }
                 }
                 Spacer(Modifier.height(8.dp))
+                if (!forceResizable) {
+                    Row(
+                        Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            Icons.Default.AspectRatio,
+                            contentDescription = null,
+                            tint = Color(0xFFFFAB40),
+                            modifier = Modifier.padding(end = 8.dp)
+                        )
+                        Text(
+                            "Split-Screen: „Aktivitäten als größenveränderbar anpassen" in den Entwickleroptionen aktivieren (betrifft die Navi-App, danach Neustart).",
+                            color = Color(0xFFFFAB40),
+                            style = MaterialTheme.typography.bodyMedium,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f)
+                        )
+                        TextButton(onClick = viewModel::openDeveloperOptions) {
+                            Text("Entwickleroptionen")
+                        }
+                    }
+                    Spacer(Modifier.height(8.dp))
+                }
                 Row(
                     Modifier.fillMaxSize(),
                     horizontalArrangement = Arrangement.spacedBy(10.dp)

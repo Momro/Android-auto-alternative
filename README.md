@@ -47,7 +47,10 @@ Hinweis: Ist `gradlew` nicht committet, erzeugen die CI-Workflows den Wrapper vo
 ## Ersteinrichtung am Android-Gerät
 
 1. Entwickleroptionen: **"Aktivitäten als größenveränderbar anpassen"** (Force activities to be
-   resizable) aktivieren, dann Neustart.
+   resizable) aktivieren, dann Neustart. *Die Dashboard-App selbst ist bereits per Manifest
+   (`android:resizeableActivity="true"`) resizable — die Option betrifft nur die Navi-App.
+   Die App erkennt den Status und bietet einen Deep-Link in die Entwickleroptionen an.
+   Alternativ einmalig per ADB: `adb shell settings put global force_resizable_activities 1`*
 2. App installieren, dann unter **Einstellungen -> Datenschutz -> Spezieller App-Zugriff ->
    Benachrichtigungszugriff** der Dashboard-App den Zugriff erteilen (oder über den
    Warnhinweis in der App).

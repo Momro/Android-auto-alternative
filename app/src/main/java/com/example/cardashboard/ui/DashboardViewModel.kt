@@ -12,6 +12,7 @@ import com.example.cardashboard.media.MediaUiState
 import com.example.cardashboard.settings.QuickAction
 import com.example.cardashboard.settings.SettingsStore
 import com.example.cardashboard.settings.parseQuickActions
+import com.example.cardashboard.system.ResizableHelper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -41,6 +42,10 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
     private val _notificationAccessGranted =
         MutableStateFlow(MediaSessionHandler.isNotificationAccessGranted(application))
     val notificationAccessGranted: StateFlow<Boolean> = _notificationAccessGranted
+
+    private val _forceResizable =
+        MutableStateFlow(ResizableHelper.isForceResizableEnabled(application))
+    val forceResizable: StateFlow<Boolean> = _forceResizable
 
     val haBaseUrl: String get() = settings.haBaseUrl
     val haToken: String get() = settings.haToken
@@ -91,6 +96,14 @@ class DashboardViewModel(application: Application) : AndroidViewModel(applicatio
     fun refreshNotificationAccess() {
         _notificationAccessGranted.value =
             MediaSessionHandler.isNotificationAccessGranted(getApplication())
+    }
+
+    fun refreshForceResizable() {
+        _forceResizable.value = ResizableHelper.isForceResizableEnabled(getApplication())
+    }
+
+    fun openDeveloperOptions() {
+        ResizableHelper.openDeveloperOptions(getApplication())
     }
 
     fun onLocationPermissionChanged() {
