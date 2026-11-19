@@ -27,10 +27,12 @@ app/
 ## Lokal bauen
 
 ```bash
-gradle wrapper --gradle-version 8.7   # einmalig: erzeugt gradlew + gradle-wrapper.jar (müssen committed werden!)
+gradle wrapper --gradle-version 8.7   # optional: erzeugt gradlew + gradle-wrapper.jar zum Committen
 ./gradlew assembleDebug
 # APK: app/build/outputs/apk/debug/app-debug.apk
 ```
+
+Hinweis: Ist `gradlew` nicht committet, erzeugen die CI-Workflows den Wrapper vor dem Build automatisch.
 
 ## CI: APK bauen
 
